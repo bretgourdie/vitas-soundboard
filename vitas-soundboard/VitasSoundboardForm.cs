@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace vitas_soundboard
 {
-    public partial class Form1 : Form
+    public partial class VitasSoundboardForm : Form
     {
-        public Form1()
+        public VitasSoundboardForm()
         {
             InitializeComponent();
         }
