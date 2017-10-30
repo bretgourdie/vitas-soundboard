@@ -41,6 +41,7 @@ namespace vitas_soundboard
             button.Text = label;
             button.Tag = file;
             button.Click += Button_Click;
+            button.AutoSize = true;
             return button;
         }
 
