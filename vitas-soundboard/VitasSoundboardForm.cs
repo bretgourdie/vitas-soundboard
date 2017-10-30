@@ -28,8 +28,6 @@ namespace vitas_soundboard
 
             var files = sfi.GetFiles();
 
-            Array.Sort(files);
-
             foreach(var file in files)
             {
                 mainTabPageFlowLayoutPanel.Controls.Add(
