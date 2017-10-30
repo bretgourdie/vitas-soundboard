@@ -88,6 +88,7 @@
             // 
             // mainTabPageFlowLayoutPanel
             // 
+            this.mainTabPageFlowLayoutPanel.AutoScroll = true;
             this.mainTabPageFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTabPageFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.mainTabPageFlowLayoutPanel.Name = "mainTabPageFlowLayoutPanel";
