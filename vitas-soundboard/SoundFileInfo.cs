@@ -25,7 +25,7 @@ namespace vitas_soundboard
 
         public FileInfo[] GetFiles()
         {
-            return directory.GetFiles("*" + wavExtension);
+            return directory.GetFiles().Where(name => name.Extension != ".md").ToArray();
         }
     }
 }
