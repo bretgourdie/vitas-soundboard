@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using NAudio.Wave;
 
 namespace vitas_soundboard
 {
     public partial class VitasSoundboardForm : Form
     {
         private string initialPath = "wavs";
-        private SoundPlayer soundPlayer = new SoundPlayer();
+        private AudioFileReader audioFileReader;
+        private WaveOutEvent waveOutEvent;
 
         public VitasSoundboardForm()
         {
@@ -48,8 +50,22 @@ namespace vitas_soundboard
         private void Button_Click(object sender, EventArgs e)
         {
             var clickedButton = (Button)sender;
-            soundPlayer.SoundLocation = (string)clickedButton.Tag;
-            soundPlayer.Play();
+            var fileName = (string)clickedButton.Tag;
+
+            if (waveOutEvent == null)
+            {
+                waveOutEvent = new WaveOutEvent();
+            }
+
+            if (waveOutEvent.PlaybackState == PlaybackState.Playing)
+            {
+                waveOutEvent.Stop();
+            }
+
+            audioFileReader = new AudioFileReader(fileName);
+            waveOutEvent.Init(audioFileReader);
+
+            waveOutEvent.Play();
         }
     }
 }
